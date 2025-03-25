@@ -1,106 +1,73 @@
-/* Custom Chat Widget Styling - Matches Your Website */
-
-/* Root Variables (Updated from Original) */
 :root {
-    --chat--color-primary: #1a1a40 !important; /* Dark Blue */
-    --chat--color-secondary: #e63946 !important; /* Red */
-    --chat--color-white: #ffffff !important;
-    --chat--color-dark: #000000 !important;
-    --chat--message--bot--background: #ffffff !important;
-    --chat--message--bot--color: #1a1a40 !important;
-    --chat--message--user--background: #1a1a40 !important;
-    --chat--message--user--color: #ffffff !important;
-    --chat--toggle--background: #e63946 !important; /* Chat button color */
-    --chat--toggle--hover--background: #d62839 !important;
-    --chat--toggle--active--background: #c71d2d !important;
+    /* Customize colors */
+    --chat--color-primary: #2c3e50;          /* Dark grayish blue for primary color */
+    --chat--color-secondary: #34495e;        /* Slightly lighter shade for secondary */
+    --chat--color-light: #f4f4f6;            /* Very light gray for light backgrounds */
+    --chat--color-white: #ffffff;            /* Pure white */
+    
+    /* Typography */
+    --chat--font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Sizing and spacing */
+    --chat--border-radius: 8px;              /* Slightly more rounded corners */
+    --chat--window--width: 380px;            /* Slightly narrower window */
+    --chat--window--height: 550px;           /* Slightly shorter window */
 }
 
-/* Core Layout from Original CSS */
-.n8n-chat-container {
-    background: #f4f4f4 !important;
-    border-radius: 12px !important;
-    border: 2px solid #1a1a40 !important;
-    max-width: 400px !important;
-    height: 600px !important;
+/* Soften message styles */
+.chat-message.chat-message-from-bot {
+    background-color: var(--chat--color-light);
+    color: #1a1a1a;
+    border-radius: var(--chat--border-radius);
 }
 
-/* Chat Header */
-.n8n-chat-header {
-    background: #1a1a40 !important;
-    color: #ffffff !important;
-    font-weight: bold !important;
-    padding: 15px !important;
-    border-radius: 12px 12px 0 0 !important;
-    font-size: 18px !important;
+.chat-message.chat-message-from-user {
+    background-color: var(--chat--color-primary);
+    color: var(--chat--color-white);
+    border-radius: var(--chat--border-radius);
 }
 
-/* Chat Messages */
-.n8n-chat-message.user {
-    background: #1a1a40 !important;
-    color: #ffffff !important;
-    border-radius: 12px !important;
-    padding: 12px !important;
-    font-size: 16px !important;
+/* Textarea styling */
+.chat-inputs textarea {
+    border-radius: var(--chat--border-radius);
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.2s ease;
 }
 
-.n8n-chat-message.bot {
-    background: #ffffff !important;
-    color: #1a1a40 !important;
-    border: 2px solid #1a1a40 !important;
-    border-radius: 12px !important;
-    padding: 12px !important;
-    font-size: 16px !important;
+.chat-inputs textarea:focus {
+    border-color: var(--chat--color-primary);
+    outline: none;
 }
 
-/* Input Box */
-.n8n-chat-input {
-    background: #ffffff !important;
-    color: #1a1a40 !important;
-    border: 2px solid #1a1a40 !important;
-    border-radius: 10px !important;
-    padding: 10px !important;
-    font-size: 14px !important;
+/* Chat window shadow and border */
+.chat-window-wrapper .chat-window {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
 }
 
-/* Send Button */
-.n8n-chat-input button {
-    background: #1a1a40 !important;
-    color: #ffffff !important;
-    border-radius: 8px !important;
-    padding: 8px 12px !important;
-    font-size: 14px !important;
-    font-weight: bold !important;
+/* Toggle button styling */
+.chat-window-wrapper .chat-window-toggle {
+    background-color: var(--chat--color-primary);
+    transition: all 0.3s ease;
 }
 
-/* Floating Chat Button */
-.n8n-chat-launcher {
-    background: #e63946 !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    position: fixed !important;
+.chat-window-wrapper .chat-window-toggle:hover {
+    background-color: var(--chat--color-secondary);
+    transform: scale(1.05);
 }
 
-/* Message Animation for Typing Effect */
-@keyframes chat-typing {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
+/* Code block styling */
+.chat-message pre {
+    background-color: #f4f4f6;
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-size: 0.9em;
 }
 
-.n8n-chat-typing-indicator {
-    animation: chat-typing 1.5s infinite !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-}
-
-/* Improved Chat Window Responsiveness */
-@media (max-width: 500px) {
-    .n8n-chat-container {
-        max-width: 90% !important;
-        height: 500px !important;
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .chat-window-wrapper .chat-window {
+        width: 95vw;
+        height: 80vh;
     }
 }
